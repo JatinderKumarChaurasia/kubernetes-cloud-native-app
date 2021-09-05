@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: kubernetes-native-app
+  namespace: flowkind
+  labels:
+    app: kubernetes-native-app
+  annotations:
+    kubernetes.io/ingress.class: ingress-nginx
+spec:
+  rules:
+    - host: kubernetes-native-app.cluster.flowkind.app
+      http:
+        paths:
+          - path: '/'
+            pathType: Prefix
+            backend:
+              service:
+                name: kubernetes-native-app
+                port:
+                  number: 80
+#  tls:
+#    - hosts:
+#        - kubernetes-native-app.cluster.flowkind.app
+#      secretName: kubernetes-native-app-ingress

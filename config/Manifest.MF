@@ -1,0 +1,3 @@
+Name: "Kubernetes Manifest"
+Created-By: "Jatinder Kumar Chaurasia"
+Manifest-Version: 1.0

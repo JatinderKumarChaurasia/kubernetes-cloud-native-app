@@ -1,0 +1,49 @@
+plugins {
+    id 'org.springframework.boot' version '2.5.4'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+    id 'application'
+}
+
+group = 'com.flowkind'
+applicationName="kubernetes-cloud-native-app"
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '16'
+
+repositories {
+    mavenCentral()
+}
+
+java {
+    withJavadocJar()
+    withSourcesJar()
+}
+
+distsDirName = "$projectDir/dist"
+//buildDir = 'libs'
+libsDirName = "$projectDir/lib"
+application {
+//    mainModule = 'com.flowkind.kubernetescloudnativeapp' // name defined in module-info.java
+    mainClass = 'com.flowkind.kubernetescloudnativeapp.KubernetesCloudNativeAppApplication'
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-actuator:2.5.4'
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.5.4'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools:2.5.4'
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor:2.5.4'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.5.4'
+}
+
+test {
+    useJUnitPlatform()
+}
+build.doFirst {
+    println "cleaning project"
+    clean
+}
+
+clean.doFirst {
+    delete "${projectDir}/lib/*"
+    delete "${projectDir}/dist/*"
+}
