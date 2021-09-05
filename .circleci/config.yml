@@ -6,7 +6,7 @@ jobs:
       _JAVA_OPTIONS: "-Xmx3g"
       GRADLE_OPTS: "-Dorg.gradle.daemon=false -Dorg.gradle.workers.max=2"
     docker:
-      - image: openjdk:16
+      - image: cimg/openjdk:16.0.2
     #      - image: circleci/openjdk:11.0.3-jdk-stretch
     steps:
       - checkout
