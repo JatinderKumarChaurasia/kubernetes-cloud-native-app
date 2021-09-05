@@ -36,7 +36,7 @@ jobs:
           arguments: clean build
           gradle-version: 7.2
       - name: 'Upload artifacts'
-      - uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v2
         with:
           name: Package
           path: build/libs
