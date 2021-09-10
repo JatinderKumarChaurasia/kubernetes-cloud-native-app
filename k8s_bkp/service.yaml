@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: kubernetes-native-app
+  name: kubernetes-native-app
+spec:
+  ports:
+    - name: 80-8080
+      port: 80
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    app: kubernetes-native-app
+  type: ClusterIP

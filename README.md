@@ -4,7 +4,7 @@
     podman rm registry.gitlab.com/jatinderkumarchaurasia/flowkind/kubernetes-native-app
     podman build -t registry.gitlab.com/jatinderkumarchaurasia/flowkind/kubernetes-native-app .
     podman run -p 8080:8080 registry.gitlab.com/jatinderkumarchaurasia/flowkind/kubernetes-native-app:latest
-    `podman push registry.gitlab.com/jatinderkumarchaurasia/flowkind/kubernetes-native-app:latest`
+    podman push registry.gitlab.com/jatinderkumarchaurasia/flowkind/kubernetes-native-app:latest`
     skopeo list-tags docker://registry.gitlab.com/jatinderkumarchaurasia/flowkind/kubernetes-native-app
     skopeo inspect docker://registry.gitlab.com/jatinderkumarchaurasia/flowkind/kubernetes-native-app:latest
 
@@ -167,6 +167,15 @@
        iii) to create new namespace and switch to use that namespace
               kubectl create namespace namespace_name
               kubectl config set-context --current --namespace namespace_name
+    6.) Remove
+       kubectl delete -f k8s/ingress.yaml - will delete the ingress
+       helm del nginx-ingress
+       - this command will delete the service - to see all the services - kubectl get services
+       kubectl delete service kubernetes-native-app
+       - this command will delete the deployment - to see all the deployment kubectl get deployments
+       kubectl delete deployment kubernetes-native-app
+       - this command will delete the cluster
+       gcloud container clusters delete my-first-cluster-1 --zone us-central1-c --project flowkind-app
 
 
       
