@@ -34,3 +34,4 @@ spec:
               # kubectl create secret docker-registry gitlab-auth --docker-server=https://registry.gitlab.com --docker-username=yourusername --docker-password=yourpassword --docker-email=jatinderkumarchaurasia@gmail.com
       imagePullSecrets:
         - name: gitlab-auth
+

@@ -6,10 +6,13 @@ metadata:
   labels:
     app: kubernetes-native-app
   annotations:
-    kubernetes.io/ingress.class: ingress-nginx
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+#    kubernetes.io/ingress.class: ingress-nginx
 spec:
   rules:
-    - host: kubernetes-native-app.cluster.flowkind.app
+    #     externalip.nio.io
+    - host: 104.198.39.59.nip.io
       http:
         paths:
           - path: '/'
@@ -23,3 +26,5 @@ spec:
 #    - hosts:
 #        - kubernetes-native-app.cluster.flowkind.app
 #      secretName: kubernetes-native-app-ingress
+
+#
